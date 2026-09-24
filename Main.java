@@ -1,44 +1,50 @@
-public class Main{
-    public static void main(String[] args){
+import java.util.Scanner;
 
-        String nome = "Pikachu";
-        String nivel = "";
-        int xp = 12000;
+public class Main {
+    public static void main(String[] args) {
 
-        if (xp < 1000 ){
-           
-            nivel = "FERRO";
+        Scanner entrada = new Scanner(System.in);
 
-        }else if (xp >= 1001 && xp <= 2000){
-            
-            nivel = "BRONZE";
+        System.out.println("Digite seu numero de vitoria");
+        int vitoria = entrada.nextInt();
 
-        }else if (xp >= 2001 && xp <= 5000){
-            
-            nivel = "PRATA";
-            
-        }else if (xp >= 5001 && xp <= 7000){
-            
-            nivel = "OURO";
+        System.out.println("Digite seu numero de derrota");
+        int derrota = entrada.nextInt();
 
-        }else if (xp >= 7001 && xp <= 8000){
-           
-            nivel = "PLATINA";
+        int saldo = calcularSaldo(vitoria, derrota);
 
-        }else if (xp >= 8001 && xp <= 9000){
-           
-            nivel = "ASCENDENTE";
+        String nivel = calcularNivel(vitoria);
 
-        }else if (xp >= 9001 && xp <= 10000){
-            
-            nivel = "IMORTAL";
+        System.out.println("O Heroi tem de saldo de " + saldo
+                + " está no nível de " + nivel);
+    }
 
-        }else if (xp >= 10001){
-            
-            nivel = "RADIANTE";
+    public static int calcularSaldo(int vitoria, int derrota) {
+        return vitoria - derrota;
+    }
 
+    public static String calcularNivel(int vitoria) {
+
+        if (vitoria <= 10) {
+            return "ferro";
+
+        } else if (vitoria <= 20) {
+            return "bronze";
+
+        } else if (vitoria <= 50) {
+            return "prata";
+
+        } else if (vitoria <= 80) {
+            return "ouro";
+
+        } else if (vitoria <= 90) {
+            return "diamante";
+
+        } else if (vitoria <= 100) {
+            return "lendario";
+
+        } else {
+            return "imortal";
         }
-        System.out.println(" O HEROI DE NOME " + nome +" ESTA NO NIVEL DE " + nivel);
-
     }
 }
